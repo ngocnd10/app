@@ -1,23 +1,25 @@
-package com.ngocnd.app.model.audit;
+package com.ngocnd.app.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import javax.persistence.Column;
-import javax.persistence.EntityListeners;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(
-        value = {"createdAt", "updatedAt"},
+        value = {"id", "createdAt", "updatedAt"},
         allowGetters = true
 )
-public class DateAudit implements Serializable {
+public class AbstractEntity implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
@@ -26,6 +28,14 @@ public class DateAudit implements Serializable {
     @LastModifiedDate
     @Column(nullable = false)
     private Instant updatedAt;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Instant getCreatedAt() {
         return createdAt;

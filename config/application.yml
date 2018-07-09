@@ -1,0 +1,29 @@
+app:
+    jwtExpirationInMs: 604800000
+    jwtSecret: JWTSuperSecretKey
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: DEBUG
+server:
+    port: 7000
+spring:
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        hikari:
+            connection-timeout: 60000
+            maximum-pool-size: 5
+        initialization-mode: always
+        url: jdbc:mysql://localhost:3306/app?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+        username: root
+        password: root
+    jackson:
+        serialization:
+            WRITE_DATES_AS_TIMESTAMPS: false
+        time-zone: UTC
+    jpa:
+        database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        hibernate:
+            ddl-auto: create-drop
+        show-sql: true

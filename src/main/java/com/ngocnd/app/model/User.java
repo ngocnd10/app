@@ -1,6 +1,5 @@
 package com.ngocnd.app.model;
 
-import com.ngocnd.app.model.audit.DateAudit;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -19,11 +18,7 @@ import java.util.Set;
                 "email"
         })
 })
-public class User extends DateAudit {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class User extends AbstractEntity {
 
     @NotBlank
     @Size(max = 40)
@@ -58,14 +53,6 @@ public class User extends DateAudit {
         this.username = username;
         this.email = email;
         this.password = password;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
