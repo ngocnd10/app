@@ -88,8 +88,4 @@ public class AuthenticationAPI {
         return ResponseEntity.created(location).body(new ApiResponse(true, "User registered successfully"));
     }
 
-    @GetMapping("test")
-    public String test() {
-        return "test";
-    }
 }
