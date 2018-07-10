@@ -1,6 +1,6 @@
 package com.ngocnd.app.repository;
 
-import com.ngocnd.app.model.User;
+import com.ngocnd.app.repository.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

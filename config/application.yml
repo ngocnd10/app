@@ -7,7 +7,7 @@ logging:
             hibernate:
                 SQL: DEBUG
 server:
-    port: 7000
+    port: 5000
 spring:
     datasource:
         driverClassName: com.mysql.jdbc.Driver

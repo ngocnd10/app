@@ -1,7 +1,7 @@
 package com.ngocnd.app.repository;
 
-import com.ngocnd.app.enumeric.RoleName;
-import com.ngocnd.app.model.Role;
+import com.ngocnd.app.common.enumeric.RoleName;
+import com.ngocnd.app.repository.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
