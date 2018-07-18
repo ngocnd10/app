@@ -2,7 +2,7 @@ app:
     jwtExpirationInMs: 604800000
     jwtSecret: JWTSuperSecretKey
 logging:
-    config: ${spring.config.location}/log4j2.xml
+    config: '${spring.config.location}/log4j2.xml'
     level:
         org:
             hibernate:
@@ -16,7 +16,7 @@ spring:
             connection-timeout: 60000
             maximum-pool-size: 5
         initialization-mode: always
-        url: jdbc:mysql://localhost:3306/app?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+        url: 'jdbc:mysql://localhost:3306/app?useSSL=false&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC'
         username: root
         password: root
     jackson:
