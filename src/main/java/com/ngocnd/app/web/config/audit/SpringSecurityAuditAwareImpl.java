@@ -1,6 +1,6 @@
 package com.ngocnd.app.web.config.audit;
 
-import com.ngocnd.app.web.config.security.UserPrincipal;
+import com.ngocnd.app.web.config.security.jwt.UserPrincipal;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;

@@ -1,8 +1,8 @@
 package com.ngocnd.app.web.config;
 
-import com.ngocnd.app.web.config.security.CustomUserDetailsService;
-import com.ngocnd.app.web.config.security.JwtAuthenticationEntryPoint;
-import com.ngocnd.app.web.config.security.JwtAuthenticationFilter;
+import com.ngocnd.app.web.config.security.jwt.CustomUserDetailsService;
+import com.ngocnd.app.web.config.security.jwt.JwtAuthenticationEntryPoint;
+import com.ngocnd.app.web.config.security.jwt.JwtAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,41 +1,32 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<Configuration status="WARN" monitorInterval="30">
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
     <Properties>
-        <Property name="LOG_PATTERN">
-            %d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${hostName} --- [%15.15t] %-40.40c{1.} : %m%n%ex
-        </Property>
+        <Property name="log-module">app</Property>
+        <Property name="log-path">logs/${log-module}</Property>
     </Properties>
 
     <Appenders>
-        <Console name="ConsoleAppender" target="SYSTEM_OUT" follow="true">
-            <PatternLayout pattern="${LOG_PATTERN}"/>
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{ABSOLUTE} [%t] [${hostName}] [%X{request-id}] %-5p %c{1} - %m%n"/>
         </Console>
 
-        <!-- Rolling File Appender -->
-        <RollingFile name="FileAppender" fileName="logs/log4j2-app.log"
-                     filePattern="logs/log4j2-app-%d{yyyy-MM-dd}-%i.log">
+        <RollingFile name="RollingFileAppender" fileName="${log-path}/${log-module}.log" filePattern="${log-path}/${log-module}.log.%d{MM-dd-yyyy}-%i.gz">
             <PatternLayout>
-                <Pattern>${LOG_PATTERN}</Pattern>
+                <Pattern>%d{HH:mm:ss,SSS} [${hostName}] %C{1} %-5p [%t] [%X{request-id}] - %m%n</Pattern>
             </PatternLayout>
             <Policies>
-                <TimeBasedTriggeringPolicy interval="1"/>
-                <SizeBasedTriggeringPolicy size="10MB"/>
+                <SizeBasedTriggeringPolicy size="1 GB" />
+                <TimeBasedTriggeringPolicy />
             </Policies>
-            <DefaultRolloverStrategy max="10"/>
+            <DefaultRolloverStrategy max="15"/>
         </RollingFile>
     </Appenders>
 
     <Loggers>
-        <AsyncLogger name="com.ngocnd.app" level="debug" additivity="false">
+        <Logger name="com.ngocnd.app" level="DEBUG"/>
+        <AsyncRoot level="INFO" includeLocation="true">
             <AppenderRef ref="ConsoleAppender"/>
-            <AppenderRef ref="FileAppender"/>
-        </AsyncLogger>
-
-        <Root level="info">
-            <AppenderRef ref="ConsoleAppender"/>
-            <AppenderRef ref="FileAppender"/>
-        </Root>
+            <AppenderRef ref="RollingFileAppender"/>
+        </AsyncRoot>
     </Loggers>
-
 </Configuration>

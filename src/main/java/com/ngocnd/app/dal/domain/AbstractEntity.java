@@ -1,4 +1,4 @@
-package com.ngocnd.app.repository.domain;
+package com.ngocnd.app.dal.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.data.annotation.CreatedBy;
@@ -14,7 +14,7 @@ import java.time.Instant;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(
-        value = {"id", "createdAt", "updatedAt", "createdBy", "updatedBy"},
+        value = {"id", "version", "createdAt", "updatedAt", "createdBy", "updatedBy"},
         allowGetters = true
 )
 public class AbstractEntity implements Serializable {
@@ -25,21 +25,22 @@ public class AbstractEntity implements Serializable {
 
     @Version
     @Column(columnDefinition = "int default 1", nullable = false)
-    private Long version = 1L;
+    private Long version = 0L;
 
     @CreatedDate
-    @Column(nullable = false, updatable = false)
+    @Column
     private Instant createdAt;
 
     @LastModifiedDate
-    @Column(nullable = false)
+    @Column
     private Instant updatedAt;
 
     @CreatedBy
-    @Column(updatable = false)
+    @Column
     private Long createdBy;
 
     @LastModifiedBy
+    @Column
     private Long updatedBy;
 
     public Long getId() {

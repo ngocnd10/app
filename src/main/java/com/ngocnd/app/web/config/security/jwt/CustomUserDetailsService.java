@@ -1,7 +1,7 @@
-package com.ngocnd.app.web.config.security;
+package com.ngocnd.app.web.config.security.jwt;
 
-import com.ngocnd.app.repository.domain.User;
-import com.ngocnd.app.repository.UserRepository;
+import com.ngocnd.app.dal.domain.User;
+import com.ngocnd.app.dal.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

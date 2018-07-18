@@ -1,4 +1,4 @@
-package com.ngocnd.app.web.config.security;
+package com.ngocnd.app.web.config.security.jwt;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,7 +1,7 @@
-package com.ngocnd.app.repository;
+package com.ngocnd.app.dal.repository;
 
 import com.ngocnd.app.common.enumeric.RoleName;
-import com.ngocnd.app.repository.domain.Role;
+import com.ngocnd.app.dal.domain.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

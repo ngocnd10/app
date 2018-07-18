@@ -1,7 +1,7 @@
-package com.ngocnd.app.web.config.security;
+package com.ngocnd.app.web.config.security.jwt;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.ngocnd.app.repository.domain.User;
+import com.ngocnd.app.dal.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -1,4 +1,4 @@
-package com.ngocnd.app.repository.domain;
+package com.ngocnd.app.dal.domain;
 
 import com.ngocnd.app.common.enumeric.RoleName;
 import org.hibernate.annotations.NaturalId;
