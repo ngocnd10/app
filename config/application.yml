@@ -12,19 +12,19 @@ server:
 spring:
     datasource:
         driverClassName: com.mysql.jdbc.Driver
+        initialization-mode: always
+        url: 'jdbc:mysql://docker.for.mac.localhost:3306/app?useSSL=false&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC'
+        username: root
+        password: root
         hikari:
             connection-timeout: 60000
             maximum-pool-size: 5
-        initialization-mode: always
-        url: 'jdbc:mysql://localhost:3306/app?useSSL=false&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC'
-        username: root
-        password: root
     jackson:
+        time-zone: UTC
         serialization:
             WRITE_DATES_AS_TIMESTAMPS: false
-        time-zone: UTC
     jpa:
         database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+        show-sql: true
         hibernate:
             ddl-auto: create-drop
-        show-sql: true
