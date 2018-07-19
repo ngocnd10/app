@@ -1,6 +1,6 @@
 #Structure app
 
-`docker run -p 3306:3306 --name app_mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=app -d mysql:5.7`
+`docker run -p 3306:3306 --name app_mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=app -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -d mysql:5.7`
 
 `docker build -t app .`
 

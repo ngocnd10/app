@@ -13,7 +13,7 @@ spring:
     datasource:
         driverClassName: com.mysql.jdbc.Driver
         initialization-mode: always
-        url: 'jdbc:mysql://docker.for.mac.localhost:3306/app?useSSL=false&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC'
+        url: 'jdbc:mysql://127.0.0.1:3306/app?useSSL=false&useUnicode=true&characterEncoding=UTF-8&characterSetResults=UTF-8&useLegacyDatetimeCode=false&serverTimezone=UTC'
         username: root
         password: root
         hikari:
